@@ -1,13 +1,14 @@
 local LocalPlayer = game.Players.LocalPlayer;
-local MainGui = LocalPlayer.MainGui or LocalPlayer:WaitForChild("MainGui");
-local Notification = MainGui:WaitForChild("NotificationFrame");
-local NotificationSound = MainGui["Main Gui Core"].NotificationSound;
-function spawnNotification(p1, p2)
-    local notification = Notification:Clone();
+local PlayerGui = LocalPlayer.PlayerGui or LocalPlayer:WaitForChild("PlayerGui");
+local MainGui = PlayerGui:FindFirstChild("MainGui");
+local notification = MainGui:WaitForChild("NotificationFrame");
+local notificationSound = MainGui["Main Gui Core"].NotificationSound;
+function spawnnotification(p1, p2)
+    local notification = notification:Clone();
     notification.Parent = MainGui;
     notification.NotificationText.Text = p1;
     notification.Visible = true;
-    NotificationSound:Play();
+    notificationSound:Play();
     if p2 then
         wait(p2);
     else
